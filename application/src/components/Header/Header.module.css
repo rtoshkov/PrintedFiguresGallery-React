@@ -1,0 +1,40 @@
+
+header {
+    background: #f8f9fa;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+h1 {
+    font-size: 25px;
+    margin-left: 10px;
+    color: black;
+}
+
+ul {
+    display: inline-block;
+}
+
+li {
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #9aa2af;
+    display: inline-block;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+    color: black;
+}
