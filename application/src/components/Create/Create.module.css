@@ -1,0 +1,54 @@
+.createContainer {
+    margin-top:20px;
+    background-color: #ffc107;
+    border-radius: 20px;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+.createContainer form {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.createContainer input  {
+    margin: 20px auto;
+    display: block;
+    width: 60%;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.createContainer  label {
+    font-size: 18px;
+}
+
+.createContainer button {
+    display: inline-block;
+    margin-top: 5px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.createContainer button:hover{
+    background-color: #fed763;
+    text-decoration: none;
+}
+
+.error {
+    border-radius: 20px;
+    margin: auto;
+    color: black;
+    background-color: #C76F6FFF;
+    width: 50%;
+
+}

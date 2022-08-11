@@ -22,14 +22,14 @@ const Header = () => {
                     <li>
                         <NavLink
                             className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="Allfigres">All figures
+                            to="/all-figures">All figures
                         </NavLink>
                     </li>
                     {/*Login User*/}
                     <li>
                         <NavLink
                             className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="Create">Create
+                            to="/create">Create
                         </NavLink>
                     </li>
                     <li>
@@ -46,7 +46,7 @@ const Header = () => {
                     <li>
                         <NavLink
                             className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="Login">Login
+                            to="/login">Login
                         </NavLink>
                     </li>
                     <li>

@@ -19,6 +19,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
+        console.log(req.body);
         const result = await api.login(req.body.username.trim().toLowerCase(), req.body.password.trim());
         res.json(result);
 

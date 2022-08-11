@@ -1,6 +1,8 @@
 import styles from './Register.module.css';
-import {useState} from "react";
-import register from '../../services/api'
+import {useContext, useState} from "react";
+import {register} from '../../services/api'
+import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
 const Register = () => {
 
     const [username, setUsername] = useState('');
@@ -8,9 +10,11 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState('');
+    const {userLogin} = useContext(AuthContext);
+
 
     const pattern = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/
-
+    const navigate = useNavigate();
     const VALIDATION = {
         'EMAIL': 'email',
         'USERNAME': 'username',
@@ -18,7 +22,7 @@ const Register = () => {
         'CONFIRMPASSWORD': 'confirmPassword'
     }
 
-    function registerHandler(e){
+    async function registerHandler(e){
         e.preventDefault();
         const data = {
             username,
@@ -26,10 +30,16 @@ const Register = () => {
             password,
         }
 
-        register(data).then(data => data.json()).catch(error => {
+        try{
+            const response = await register(data);
+            const record = await response.json();
+            userLogin(record);
+            navigate('/')
+
+        }catch(error){
             setErrors(error.message);
-            console.log(errors)
-        })
+        }
+
     }
 
     function usernameHandler(e){
@@ -98,6 +108,15 @@ const Register = () => {
                        onBlur={validate}
                 />
 
+                <label htmlFor='confirmPassword'>Confirm Password:</label>
+                <input type="password"
+                       value={confirmPassword}
+                       onChange={confirmPasswordHandler}
+                       id="confirmPassword"
+                       name="confirmPassword"
+                       onBlur={validate}
+                />
+
                 <label htmlFor='email'>Email:</label>
                 <input type="email"
                        value={email}
@@ -107,15 +126,6 @@ const Register = () => {
                        onBlur={validate}
                 />
 
-
-                <label htmlFor='confirmPassword'>Confirm Password:</label>
-                <input type="password"
-                       value={confirmPassword}
-                       onChange={confirmPasswordHandler}
-                       id="confirmPassword"
-                       name="confirmPassword"
-                       onBlur={validate}
-                />
 
                 <button type="submit">Submit</button>
 
