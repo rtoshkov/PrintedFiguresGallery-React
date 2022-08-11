@@ -52,7 +52,7 @@ const Header = () => {
                     <li>
                         <NavLink
                             className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="Register">Register
+                            to="/register">Register
                         </NavLink>
                     </li>
                 </ul>

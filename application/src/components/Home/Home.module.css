@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    width: 80%;
+    margin:  30px auto;
+
+}
+
+.logoImage {
+    width: 600px;
+    height:400px
+}
+
+.containerText {
+    max-width: 90%;
+}
+
+.containerText h1 {
+    font-size: 40px;
+    margin-left: 0;
+}
+
+.homePageButton {
+    display: inline-block;
+    margin-top: 5px;
+    background-color: #ffc107;
+    color: black;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.homePageButton:hover{
+    background-color: #fed763;
+    text-decoration: none;
+}
+
+.taglineBorder {
+    width: 90%;
+    color: white;
+    background-color: #212529;
+    border-radius: 5px;
+    height: 100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taglineBorder p {
+    font-size: 15px;
+    margin: auto;
+}
