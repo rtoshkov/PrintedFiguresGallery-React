@@ -1,7 +1,17 @@
 import styles from './Home.module.css';
 import {Link} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getAllPosts} from "../../services/api";
+import Cards from "../Cards/Cards";
 
 const Home = () => {
+    const [figures, setFigures] = useState(undefined);
+
+    useEffect(() => {
+        getAllPosts().then(result => result.json()).then(result => {
+            setFigures(result.slice(-3));
+        });
+    }, []);
 
     return (
         <>
@@ -28,6 +38,10 @@ const Home = () => {
             <section className={styles.taglineBorder}>
                 <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </section>
+
+            <section className={styles.cardsHomePage}>
+                {figures?.map((x) => (<Cards card={x}/>))}
             </section>
 
         </>

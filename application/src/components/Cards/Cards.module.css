@@ -1,0 +1,51 @@
+
+article.card {
+    box-sizing: content-box;
+    margin: 10px 0;
+    background-color: white;
+    text-align: left;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid #9aa2af;
+}
+
+.info {
+    padding: 25px;
+    text-align: left;
+}
+
+.info p{
+    margin: auto;
+    word-wrap: break-word;
+}
+
+.profileImg{
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h3 {
+    padding-bottom: 10px;
+}
+
+article button {
+    margin: 0 0 25px 25px;
+    background-color: #ffc107;
+    color: white;
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 25px;
+}
+
+article button:hover {
+    cursor: pointer;
+}

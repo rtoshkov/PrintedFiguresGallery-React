@@ -1,6 +1,7 @@
 import styles from './AllFigures.module.css';
 import {getAllPosts} from "../../services/api";
 import {useEffect, useState} from "react";
+import Cards from "../Cards/Cards";
 
 const AllFigures = () => {
     const [figures, setFigures] = useState(undefined);
@@ -14,7 +15,7 @@ const AllFigures = () => {
     return (
         <>
         <div className={styles.container}>
-            {figures?.map((x) => (<p key={x._id}>{x.name}</p>))}
+            {figures?.map((x) => (<Cards card={x}/>))}
         </div>
         </>
     )
