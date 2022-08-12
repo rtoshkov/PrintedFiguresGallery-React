@@ -44,3 +44,16 @@
     background-color: red;
 }
 
+.commentForm {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #d41576;
+    border-radius: 20px;
+}
+
+.DetailsSection  .comment {
+    background-color: #c2c5c9;
+}

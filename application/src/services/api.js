@@ -116,16 +116,33 @@ const deletePost = async (id, token) => {
 }
 
 
-const editPost = async(id, data, token) => {
+const editPost = async (id, data, token) => {
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-Authorization': token,
         },
-        body:JSON.stringify(data),
+        body: JSON.stringify(data),
     }
     const request = await fetch(`${api.figures}/${id}`, options);
+    if (request.ok === false) {
+        const err = await request.json();
+        throw new Error(err.message);
+    }
+    return request;
+}
+
+const postComment = async (id, data, token) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+        body: JSON.stringify(data),
+    }
+    const request = await fetch(`${api.figures}/comment/${id}`, options);
     if (request.ok === false) {
         const err = await request.json();
         throw new Error(err.message);
@@ -142,4 +159,5 @@ export {
     deletePost,
     editPost,
     logout,
+    postComment,
 }
