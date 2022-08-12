@@ -3,6 +3,8 @@ const api = {
     figures: 'http://127.0.0.1:3030/figures'
 };
 
+// USER
+
 const register = async (data) => {
     const options = {
         method: 'POST',
@@ -39,6 +41,20 @@ const login = async (data) => {
 
     return request
 }
+
+
+const logout = async (token) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+    }
+    return await fetch(`${api.users}/logout`, options);
+}
+
+// POSTS
 
 const createPost = async (data, token) => {
     const options = {
@@ -125,4 +141,5 @@ export {
     getPost,
     deletePost,
     editPost,
+    logout,
 }

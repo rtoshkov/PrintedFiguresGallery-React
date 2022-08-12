@@ -1,8 +1,10 @@
 import styles from './Header.module.css';
 import {NavLink} from "react-router-dom";
+import {AuthContext} from "../../context/AuthContext";
+import {useContext} from "react";
 
 const Header = () => {
-
+    const {user} = useContext(AuthContext);
 
     return (
         <header>
@@ -26,35 +28,37 @@ const Header = () => {
                         </NavLink>
                     </li>
                     {/*Login User*/}
-                    <li>
-                        <NavLink
-                            className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="/create">Create
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="Logout">Logout</NavLink></li>
-                    <li>
-                        <NavLink
-                            className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="MyFigures">My Figures
-                        </NavLink>
-                    </li>
-                    {/*Logout User*/}
-                    <li>
-                        <NavLink
-                            className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="/login">Login
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            className={({isActive}) => (isActive ? styles.bold : 'undefined')}
-                            to="/register">Register
-                        </NavLink>
-                    </li>
+                    {user?.accessToken
+                        ?
+                        <>
+                            <li>
+                                <NavLink
+                                    className={({isActive}) => (isActive ? styles.bold : 'undefined')}
+                                    to="/create">Create
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={({isActive}) => (isActive ? styles.bold : 'undefined')}
+                                    to="Logout">Logout</NavLink></li>
+                        </>
+                        :
+                        <>
+                            {/*Logout User*/}
+                            <li>
+                                <NavLink
+                                    className={({isActive}) => (isActive ? styles.bold : 'undefined')}
+                                    to="/login">Login
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    className={({isActive}) => (isActive ? styles.bold : 'undefined')}
+                                    to="/register">Register
+                                </NavLink>
+                            </li>
+                        </>
+                    }
                 </ul>
             </nav>
         </header>

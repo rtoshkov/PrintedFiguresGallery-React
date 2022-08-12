@@ -6,7 +6,6 @@ import {AuthContext} from "../../context/AuthContext";
 
 const Edit = () => {
     const {id} = useParams();
-    const [post, setPost] = useState('');
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [resin, setResin] = useState('');
@@ -15,7 +14,6 @@ const Edit = () => {
 
     useEffect(() => {
         getPost(id).then(result => result.json()).then(result => {
-            setPost(result);
             setName(result.name);
             setImage(result.image);
             setResin(result.resin);

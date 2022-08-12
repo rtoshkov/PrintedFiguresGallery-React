@@ -10,6 +10,8 @@ import Create from "./components/Create/Create";
 import AllFigures from "./components/AllFigures/AllFigures";
 import Details from "./components/Details/Details";
 import Edit from "./components/Edit/Edit";
+import Logout from "./components/Logout/Logout";
+import LoginGuard from "./components/RouteCommon/LoginGuard";
 
 function App() {
     return (
@@ -19,13 +21,16 @@ function App() {
                 <main>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/register" element={<Register/>}/>
                         <Route path="/login" element={<Login/>}/>
-                        <Route path="/create" element={<Create/>}/>
                         <Route path="/all-figures" element={<AllFigures/>}/>
                         <Route path="/details/:id" element={<Details/>}/>
-                        <Route path="/edit/:id" element={<Edit/>}/>
+                        <Route path="/register" element={<Register/>}/>
 
+                        <Route element={<LoginGuard/>}>
+                            <Route path="/create" element={<Create/>}/>
+                            <Route path="/logout" element={<Logout/>}/>
+                            <Route path="/edit/:id" element={<Edit/>}/>
+                        </Route>
                     </Routes>
                 </main>
             </AuthProvider>
