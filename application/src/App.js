@@ -12,6 +12,7 @@ import Details from "./components/Details/Details";
 import Edit from "./components/Edit/Edit";
 import Logout from "./components/Logout/Logout";
 import LoginGuard from "./components/RouteCommon/LoginGuard";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
     return (
@@ -31,6 +32,8 @@ function App() {
                             <Route path="/logout" element={<Logout/>}/>
                             <Route path="/edit/:id" element={<Edit/>}/>
                         </Route>
+
+                        <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </main>
             </AuthProvider>
