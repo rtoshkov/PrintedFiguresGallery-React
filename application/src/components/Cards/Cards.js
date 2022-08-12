@@ -5,7 +5,7 @@ const Cards = (props) => {
     const navigate = useNavigate();
 
     function onDetails() {
-        navigate('/');
+        navigate(`/details/${props.card._id}`);
     }
 
     return (

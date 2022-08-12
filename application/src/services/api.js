@@ -67,9 +67,62 @@ const getAllPosts = async () => {
     return request
 }
 
+
+const getPost = async (id) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+    const request = await fetch(`${api.figures}/${id}`, options);
+    if (request.ok === false) {
+        const err = await request.json();
+        throw new Error(err.message);
+    }
+    return request;
+}
+
+const deletePost = async (id, token) => {
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+    }
+    const request = await fetch(`${api.figures}/${id}`, options);
+    if (request.ok === false) {
+        const err = await request.json();
+        throw new Error(err.message);
+    }
+    return request;
+}
+
+
+const editPost = async(id, data, token) => {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Authorization': token,
+        },
+        body:JSON.stringify(data),
+    }
+    const request = await fetch(`${api.figures}/${id}`, options);
+    if (request.ok === false) {
+        const err = await request.json();
+        throw new Error(err.message);
+    }
+    return request;
+}
+
 export {
     register,
     login,
     createPost,
     getAllPosts,
+    getPost,
+    deletePost,
+    editPost,
 }

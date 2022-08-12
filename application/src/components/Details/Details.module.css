@@ -1,0 +1,46 @@
+.DetailsSection {
+    padding-top: 40px;
+    /*background-color: #ffc107;*/
+    /*border-radius: 20px;*/
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.DetailsSection h2 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.ImageContainer {
+    width: 50%;
+    text-align: center;
+}
+
+.ImageContainer img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.DetailsSection .info {
+    text-align: center;
+    width: 50%;
+}
+
+.DetailsSection .description {
+    padding: 20px;
+    background-color: #ffc107;
+    border-radius: 20px;
+}
+
+.controls {
+
+}
+
+.deleteBtn {
+    background-color: red;
+}
+

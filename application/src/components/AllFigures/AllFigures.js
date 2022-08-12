@@ -15,7 +15,7 @@ const AllFigures = () => {
     return (
         <>
         <div className={styles.container}>
-            {figures?.map((x) => (<Cards card={x}/>))}
+            {figures?.map((x) => (<Cards key={x._id} card={x}/>))}
         </div>
         </>
     )

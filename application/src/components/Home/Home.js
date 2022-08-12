@@ -41,7 +41,7 @@ const Home = () => {
             </section>
 
             <section className={styles.cardsHomePage}>
-                {figures?.map((x) => (<Cards card={x}/>))}
+                {figures?.map((x) => (<Cards  key={x._id} card={x}/>))}
             </section>
 
         </>
