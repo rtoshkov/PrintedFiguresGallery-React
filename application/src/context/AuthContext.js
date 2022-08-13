@@ -19,7 +19,6 @@ export const AuthProvider = ({children}) => {
             user: auth,
             userLogin,
             userLogout,
-            isAuthenticated: !!auth.accessToken
         }}>
             {children}
         </AuthContext.Provider>
