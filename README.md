@@ -1,4 +1,4 @@
-"#PrintedFiguresGallery-React
+#PrintedFiguresGallery-React
 
 React Project Assignment | SoftUni https://softuni.bg/trainings/3727/reactjs-june-2022
 
